@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Analogue Clock'
+      template: 'src/assets/index.html'
     })
   ],
   output: {
