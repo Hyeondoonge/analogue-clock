@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack server --open"
   },
   "dependencies": {
     "react": "^18.2.0",
