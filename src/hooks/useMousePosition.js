@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
-import { mousePositionValue } from '../recoil/mousePosition';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { mousePositionValue, trackTargetValue } from '../recoil/mouse';
 
 export default function useMousePosition() {
+  const target = useRecoilValue(trackTargetValue);
   const [mousePosition, setMousePosition] = useRecoilState(mousePositionValue);
 
   const mousemoveHandler = (event) => {
@@ -16,19 +17,17 @@ export default function useMousePosition() {
     setMousePosition({ ...mousePosition, isMouseOn: false });
   };
 
-  const initTarget = (target) => {
+  useEffect(() => {
     if (!target) return;
     target.addEventListener('mousemove', mousemoveHandler);
     target.addEventListener('mouseleave', mouseleaveHandler);
-  };
 
-  useEffect(() => {
     return () => {
       if (!target) return;
       target.removeEventListener('mousemove', mousemoveHandler);
       target.removeEventListener('mouseleave', mouseleaveHandler);
     };
-  }, []);
+  }, [target]);
 
-  return [initTarget, mousePosition];
+  return mousePosition;
 }
