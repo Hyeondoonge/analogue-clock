@@ -1,0 +1,75 @@
+#clock {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: #3ac84c;
+  border: 20px solid #000000;
+  border-radius: 50%;
+}
+
+#middle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  stroke-width: 1px;
+}
+
+.flag {
+  position: absolute;
+  background-color: #000000;
+  margin: 20px;
+  border-radius: 15%;
+}
+
+#one {
+  top: 0px;
+  width: 10px;
+  height: 30px;
+}
+
+#three {
+  right: 0px;
+  width: 30px;
+  height: 10px;
+}
+
+#six {
+  bottom: 0px;
+  width: 10px;
+  height: 30px;
+}
+
+#nine {
+  left: 0px;
+  width: 30px;
+  height: 10px;
+}
+
+.hand {
+  position: absolute;
+  background-color: #000000;
+  transform-origin: 50% 100%;
+  border-radius: 15%;
+  transition: transform 0.5s;
+}
+
+#second-hand {
+  top: 60px;
+  width: 3px;
+  height: calc(50% - 60px);
+}
+
+#minute-hand {
+  top: 60px;
+  width: 10px;
+  height: calc(50% - 60px);
+}
+
+#hour-hand {
+  top: 100px;
+  width: 10px;
+  height: calc(50% - 100px);
+}
