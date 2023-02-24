@@ -4,14 +4,14 @@ import { dateValue, formatDateSelector } from '../recoil/date';
 
 export default function useDate() {
   const setDate = useSetRecoilState(dateValue);
-  const interval = useRef(
-    setInterval(() => {
-      setDate(new Date());
-    }, 1000)
-  );
+  const interval = useRef(null);
   const formatDate = useRecoilValue(formatDateSelector);
 
   useEffect(() => {
+    interval.current = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+
     return () => {
       clearInterval(interval.current);
     };
