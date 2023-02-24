@@ -81,4 +81,10 @@
   border-radius: 10px;
   position: absolute;
   box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.tooltip,
+.active {
+  display: block;
 }
