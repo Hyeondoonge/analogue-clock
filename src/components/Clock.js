@@ -1,4 +1,5 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import useDate from '../hooks/useDate';
 
 function ClockMiddle() {
   return <div id='middle' className='flag' />;
@@ -16,9 +17,18 @@ function ClockDirection() {
 }
 
 function ClockHands() {
+  const formatDate = useDate();
+  const { hours, seconds, minutes } = formatDate;
   const minuteHand = useRef(null);
   const secondHand = useRef(null);
   const hourHand = useRef(null);
+
+  useEffect(() => {
+    secondHand.current.style.transform = `rotate(${seconds * 6}deg)`;
+    minuteHand.current.style.transform = `rotate(${minutes * 6}deg)`;
+    hourHand.current.style.transform = `rotate(${hours * 30 + minutes * 0.5}deg)`;
+  }, [formatDate]);
+
   return (
     <>
       <div ref={secondHand} id='second-hand' className='hand' />
