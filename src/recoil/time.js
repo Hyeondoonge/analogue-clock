@@ -10,9 +10,9 @@ const formatDateSelector = selector({
   get: ({ get }) => {
     const date = get(dateValue);
 
-    const seconds = date.getSeconds();
-    const minutes = date.getMinutes();
-    const hours = date.getHours();
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
 
     return { hours, minutes, seconds };
   }
