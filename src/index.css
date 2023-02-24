@@ -53,7 +53,6 @@
   background-color: #000000;
   transform-origin: 50% 100%;
   border-radius: 15%;
-  transition: transform 0.5s;
 }
 
 #second-hand {
