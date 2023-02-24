@@ -72,3 +72,13 @@
   width: 10px;
   height: calc(50% - 100px);
 }
+
+.tooltip {
+  z-index: 2;
+  font-size: 30px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  position: absolute;
+  box-shadow: inset 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+}

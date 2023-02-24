@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import useDate from '../hooks/useDate';
+import useMousePosition from '../hooks/useMousePosition';
 
 function ClockMiddle() {
   return <div id='middle' className='flag' />;
@@ -48,10 +49,17 @@ function ClockFace() {
   );
 }
 
+function Tooltip() {
+  const target = useRef(null);
+
+  return <div ref={target} className='tooltip' />;
+}
+
 export default function Clock() {
   return (
     <div id='clock'>
       <ClockFace />
+      <Tooltip />
     </div>
   );
 }
