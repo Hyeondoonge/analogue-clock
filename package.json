@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "webpack --mode=production --config webpack.config.js",
-    "start": "webpack server --open"
+    "start": "webpack server --open --mode=development "
   },
   "dependencies": {
     "react": "^18.2.0",
