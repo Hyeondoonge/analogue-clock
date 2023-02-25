@@ -3,6 +3,7 @@ import { useSetRecoilState } from 'recoil';
 import useDate from '../hooks/useDate';
 import useMousePosition from '../hooks/useMousePosition';
 import { trackTargetValue } from '../recoil/mouse';
+import MouseTooltip from './common/MouseTooltip';
 
 function ClockMiddle() {
   return <div id='middle' className='flag' />;
@@ -51,30 +52,14 @@ function ClockFace() {
   );
 }
 
-function Tooltip() {
-  const mousePosition = useMousePosition();
+export default function Clock() {
   const { hours, minutes, seconds } = useDate();
   const target = useRef(null);
-
-  useEffect(() => {
-    target.current.style.top = `${mousePosition.y - 80}px`;
-    target.current.style.left = `${mousePosition.x - 20}px`;
-  }, [mousePosition]);
+  const setTrackTarget = useSetRecoilState(trackTargetValue);
 
   const formatDate = () => {
     return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}`;
   };
-
-  return (
-    <div ref={target} className={`tooltip ${!mousePosition.isMouseOn ? 'active' : ''}`}>
-      {formatDate()}
-    </div>
-  );
-}
-
-export default function Clock() {
-  const target = useRef(null);
-  const setTrackTarget = useSetRecoilState(trackTargetValue);
 
   useEffect(() => {
     setTrackTarget(target.current);
@@ -83,7 +68,7 @@ export default function Clock() {
   return (
     <div ref={target} id='clock'>
       <ClockFace />
-      <Tooltip />
+      <MouseTooltip text={formatDate()} />
     </div>
   );
 }
