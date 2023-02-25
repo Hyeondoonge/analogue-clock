@@ -11,10 +11,14 @@ function ClockFace({ date }) {
   const secondHand = useRef(null);
   const hourHand = useRef(null);
 
-  useEffect(() => {
+  const rotateHands = () => {
     secondHand.current.style.transform = `rotate(${seconds * 6}deg)`;
     minuteHand.current.style.transform = `rotate(${minutes * 6}deg)`;
     hourHand.current.style.transform = `rotate(${hours * 30 + minutes * 0.5}deg)`;
+  };
+
+  useEffect(() => {
+    rotateHands();
   }, [date]);
 
   return (
