@@ -5,9 +5,8 @@ import { trackTargetValue } from '../recoil/mouse';
 import MouseTooltip from './common/MouseTooltip';
 import { formatDate } from '../util';
 
-function ClockFace() {
-  const formatDate = useDate();
-  const { hours, seconds, minutes } = formatDate;
+function ClockFace({ date }) {
+  const { hours, seconds, minutes } = date;
   const minuteHand = useRef(null);
   const secondHand = useRef(null);
   const hourHand = useRef(null);
@@ -16,7 +15,7 @@ function ClockFace() {
     secondHand.current.style.transform = `rotate(${seconds * 6}deg)`;
     minuteHand.current.style.transform = `rotate(${minutes * 6}deg)`;
     hourHand.current.style.transform = `rotate(${hours * 30 + minutes * 0.5}deg)`;
-  }, [formatDate]);
+  }, [date]);
 
   return (
     <>
@@ -43,7 +42,7 @@ export default function Clock() {
 
   return (
     <div ref={target} id='clock'>
-      <ClockFace />
+      <ClockFace date={date} />
       <MouseTooltip text={formatDate(date)} />
     </div>
   );
