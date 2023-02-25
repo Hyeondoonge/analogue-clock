@@ -1,6 +1,7 @@
 # analogue-clock
 
-아날로그 시계 구현 과제
+- 아날로그 시계 구현 과제
+- 배포 - [https://analogue-clock-pink.vercel.app](https://analogue-clock-pink.vercel.app)
 
 ## 기술 스택
 
@@ -15,7 +16,7 @@
 ## 설치
 
 ```
-npm run install
+npm install
 ```
 
 ## 개발 모드 실행
