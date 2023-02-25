@@ -97,7 +97,6 @@ body {
   display: none;
 }
 
-.tooltip,
 .active {
   display: block;
 }
