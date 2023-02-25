@@ -5,22 +5,7 @@ import { trackTargetValue } from '../recoil/mouse';
 import MouseTooltip from './common/MouseTooltip';
 import { formatDate } from '../util';
 
-function ClockMiddle() {
-  return <div id='middle' className='flag' />;
-}
-
-function ClockDirection() {
-  return (
-    <>
-      <div id='one' className='flag' />
-      <div id='three' className='flag' />
-      <div id='six' className='flag' />
-      <div id='nine' className='flag' />
-    </>
-  );
-}
-
-function ClockHands() {
+function ClockFace() {
   const formatDate = useDate();
   const { hours, seconds, minutes } = formatDate;
   const minuteHand = useRef(null);
@@ -35,19 +20,14 @@ function ClockHands() {
 
   return (
     <>
+      <div id='middle' className='flag' />;
+      <div id='one' className='flag' />
+      <div id='three' className='flag' />
+      <div id='six' className='flag' />
+      <div id='nine' className='flag' />
       <div ref={secondHand} id='second-hand' className='hand' />
       <div ref={minuteHand} id='minute-hand' className='hand' />
       <div ref={hourHand} id='hour-hand' className='hand' />
-    </>
-  );
-}
-
-function ClockFace() {
-  return (
-    <>
-      <ClockMiddle />
-      <ClockDirection />
-      <ClockHands />
     </>
   );
 }
