@@ -6,12 +6,12 @@ export default function MouseTooltip({ text }) {
   const target = useRef(null);
 
   useEffect(() => {
-    target.current.style.top = `${mousePosition.y - 80}px`;
-    target.current.style.left = `${mousePosition.x - 20}px`;
+    target.current.style.top = `${mousePosition.y - 40}px`;
+    target.current.style.left = `${mousePosition.x + 10}px`;
   }, [mousePosition]);
 
   return (
-    <div ref={target} className={`tooltip ${!mousePosition.isMouseOn ? 'active' : ''}`}>
+    <div ref={target} className={`tooltip ${mousePosition.isMouseOn ? 'active' : ''}`}>
       {text}
     </div>
   );
